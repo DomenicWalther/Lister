@@ -1,7 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 
-Public Module hotkeys
-
+Public Module Hotkeys
     <DllImport("user32.dll")>
     Function GetAsyncKeyState(ByVal vKey As System.Windows.Forms.Keys) As Short
     End Function
@@ -14,7 +13,9 @@ Public Module hotkeys
 
     Public Function CheckHotkeys() As Boolean
 
-        If (GetAsyncKeyState(Keys.LWin) And KeyDownBit) = KeyDownBit AndAlso (GetAsyncKeyState(Keys.O) And KeyDownBit) = KeyDownBit Then
+        If _
+            (GetAsyncKeyState(Keys.LWin) And KeyDownBit) = KeyDownBit AndAlso
+            (GetAsyncKeyState(Keys.O) And KeyDownBit) = KeyDownBit Then
             If Form1.Visible Then
                 AppActivate("Lister")
             Else
@@ -25,7 +26,6 @@ Public Module hotkeys
         ElseIf (GetAsyncKeyState(Keys.Escape) And KeyDownBit) = KeyDownBit Then
             listerFormHandler.HideForm()
         End If
-
     End Function
 
     Private Sub KeyDown1_keyDown(sender As Object, e As KeyEventArgs) Handles KeyDown1.KeyDown, KeyDown2.KeyDown
@@ -33,6 +33,4 @@ Public Module hotkeys
             applicationHandler.CheckResult()
         End If
     End Sub
-
-
 End Module

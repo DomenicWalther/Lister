@@ -37,6 +37,4 @@
             lv.Items.Add(New ListViewItem({keyValue.Key, keyValue.Value}))
         Next
     End Function
-
-
 End Class

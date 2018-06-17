@@ -1,5 +1,4 @@
 ﻿Module listerFormHandler
-
     'Hides the Form & resets it to it's Standard Form
     Public Function HideForm()
         Form1.Hide()
@@ -14,7 +13,7 @@
     Public Function ShowForm()
         Form1.Show()
         taskManagerPrograms.GetPrograms()
-        listBoxFilter.updateFilter()
+        listBoxFilter.UpdateFilter()
         Form1.txtFilter.Focus()
         AppActivate("Lister")
     End Function
@@ -26,26 +25,27 @@
     ' We can reverse this calculation to obtain the font size needed for a desired height:
     ' Font Size = ( height - 7 ) * Font Em Height / Font Line Spacing
     ' This function will return a font object that will set the size of your textbox
-    Public Function GetFontForTextBoxHeight(TextBoxHeight As Integer, OriginalFont As Font)
+    Public Function GetFontForTextBoxHeight(textBoxHeight As Integer, OriginalFont As Font)
 
-        Dim DesiredHeight = TextBoxHeight
+        Dim desiredHeight = textBoxHeight
 
-        Dim TextFont As Font = New Font(OriginalFont.FontFamily,
-OriginalFont.Size,
-OriginalFont.Style,
-GraphicsUnit.Pixel)
+        Dim textFont As Font = New Font(OriginalFont.FontFamily,
+                                        OriginalFont.Size,
+                                        OriginalFont.Style,
+                                        GraphicsUnit.Pixel)
 
-        If DesiredHeight < 8 Then
-            DesiredHeight = 8
+        If desiredHeight < 8 Then
+            desiredHeight = 8
         End If
 
-        Dim FontEmSize As Long = TextFont.FontFamily.GetEmHeight(TextFont.Style)
-        Dim FontLineSpacing As Long = TextFont.FontFamily.GetLineSpacing(TextFont.Style)
+        Dim FontEmSize As Long = textFont.FontFamily.GetEmHeight(textFont.Style)
+        Dim FontLineSpacing As Long = textFont.FontFamily.GetLineSpacing(textFont.Style)
 
-        Dim EmSize As Long = (DesiredHeight - 7) * FontEmSize / FontLineSpacing
+        Dim EmSize As Long = (desiredHeight - 7) * FontEmSize / FontLineSpacing
 
-        TextFont = New Font(TextFont.FontFamily, EmSize, TextFont.Style, GraphicsUnit.Pixel)
+        textFont = New Font(textFont.FontFamily, EmSize, textFont.Style, GraphicsUnit.Pixel)
 
-        Return TextFont
+        Return textFont
     End Function
 End Module
+

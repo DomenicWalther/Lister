@@ -1,25 +1,25 @@
 ﻿Imports System.IO
 
-Module searchHandler
-    Public searchList As New Dictionary(Of String, String)
+Module SearchHandler
+    Public SearchList As New Dictionary(Of String, String)
 
     'Loads the List of Websites for the Search Function
     Public Function GetSearchList()
 
-        Dim searchXML As XElement = XElement.Load("Root.xml", LoadOptions.PreserveWhitespace)
+        Dim searchXml As XElement = XElement.Load("Root.xml", LoadOptions.PreserveWhitespace)
 
-        For Each el As XElement In searchXML.Elements
-            searchList.Add(el.Name.LocalName, el.Value)
+        For Each el As XElement In searchXml.Elements
+            SearchList.Add(el.Name.LocalName, el.Value)
         Next
     End Function
 
     ' Saves the Search List to an xml File
     Private Function SaveSearchList()
         Dim root As XElement =
-            <Root>
-                <%= From keyValue In searchList
-                    Select New XElement(keyValue.Key, keyValue.Value) %>
-            </Root>
+                <Root>
+                    <%= From keyValue In SearchList
+                        Select New XElement(keyValue.Key, keyValue.Value) %>
+                </Root>
 
         root.Save("Root.xml")
     End Function
@@ -28,7 +28,7 @@ Module searchHandler
     Public Function AddSearchList(key As String, value As String)
         Try
             If value.Contains("https://www.") Then
-                searchList.Add(key, value)
+                SearchList.Add(key, value)
                 SaveSearchList()
                 listerFormHandler.HideForm()
             Else
@@ -39,21 +39,18 @@ Module searchHandler
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
-
     End Function
 
     ' Removes a specific key from the Search List 
     Public Function RemoveSearchList(key As String)
-        If searchList.ContainsKey(key) Then
-            searchList.Remove(key)
+        If SearchList.ContainsKey(key) Then
+            SearchList.Remove(key)
             SaveSearchList()
             listerFormHandler.HideForm()
             listerFormHandler.ShowForm()
         Else
             MessageBox.Show("This Key doesn't exist!")
         End If
-
     End Function
 
     ' Uses the SelectedItem in the Listbox as Key to get the Link of the Website

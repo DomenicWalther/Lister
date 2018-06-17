@@ -1,5 +1,4 @@
 ﻿Public Module taskManagerPrograms
-
     Public dtPrograms As DataTable = New DataTable
 
     ' Defines all of the Listbox Properties
@@ -20,7 +19,7 @@
             End If
         Next
 
-        For Each kvp As KeyValuePair(Of String, String) In searchHandler.searchList
+        For Each kvp As KeyValuePair(Of String, String) In SearchHandler.SearchList
             dtPrograms.Rows.Add(kvp.Key)
         Next
 
@@ -28,6 +27,4 @@
 
         Return dtPrograms
     End Function
-
-
 End Module
