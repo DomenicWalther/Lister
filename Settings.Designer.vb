@@ -27,6 +27,7 @@ Partial Class Settings
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnRemove = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtKey
@@ -70,11 +71,21 @@ Partial Class Settings
         Me.btnAdd.Text = "Add Entry"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
+        'btnRemove
+        '
+        Me.btnRemove.Location = New System.Drawing.Point(154, 398)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(75, 23)
+        Me.btnRemove.TabIndex = 5
+        Me.btnRemove.Text = "Remove Entry"
+        Me.btnRemove.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 433)
+        Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -93,4 +104,5 @@ Partial Class Settings
     Friend WithEvents Label2 As Label
     Friend WithEvents btnAdd As Button
     Friend WithEvents lbSearchList As ListBox
+    Friend WithEvents btnRemove As Button
 End Class

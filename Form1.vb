@@ -12,10 +12,6 @@ Public Class Form1
         taskManagerPrograms.GetPrograms()
         txtFilter.Focus()
         txtFilter.Font = listerFormHandler.GetFontForTextBoxHeight(listerFormHeight, txtFilter.Font)
-
-        Dim settingsForm As Settings
-        settingsForm = New Settings()
-        settingsForm.Show()
     End Sub
 
     Public Function openApplication()

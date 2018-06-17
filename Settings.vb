@@ -1,22 +1,27 @@
 ﻿Public Class Settings
     Public lv As New ListView
 
-
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        updateSearchList()
+        commandList()
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        MessageBox.Show("The button is actually working!")
         searchHandler.addSearchList(txtKey.Text, txtLink.Text)
+        lv.Clear()
+        commandList()
+        txtKey.Clear()
+        txtLink.Clear()
     End Sub
 
-    Public Function updateSearchList()
+    Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
+        MessageBox.Show(lv.SelectedItems(0).Text)
+        searchHandler.removeSearchList(lv.SelectedItems(0).Text)
+        lv.Clear()
+        commandList()
+    End Sub
 
-        ' This call is required by the designer.
-        InitializeComponent()
+    Public Function commandList()
 
-        ' Add any initialization after the InitializeComponent() call.
         With lv
             .View = View.Details
             .FullRowSelect = True
@@ -32,5 +37,6 @@
             lv.Items.Add(New ListViewItem({keyValue.Key, keyValue.Value}))
         Next
     End Function
+
 
 End Class
