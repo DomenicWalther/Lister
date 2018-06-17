@@ -28,24 +28,24 @@
     ' This function will return a font object that will set the size of your textbox
     Public Function GetFontForTextBoxHeight(TextBoxHeight As Integer, OriginalFont As Font)
 
-        Dim desiredheight = TextBoxHeight
+        Dim DesiredHeight = TextBoxHeight
 
-        Dim fnt As Font = New Font(OriginalFont.FontFamily,
+        Dim TextFont As Font = New Font(OriginalFont.FontFamily,
 OriginalFont.Size,
 OriginalFont.Style,
 GraphicsUnit.Pixel)
 
-        If desiredheight < 8 Then
-            desiredheight = 8
+        If DesiredHeight < 8 Then
+            DesiredHeight = 8
         End If
 
-        Dim FontEmSize As Long = fnt.FontFamily.GetEmHeight(fnt.Style)
-        Dim FontLineSpacing As Long = fnt.FontFamily.GetLineSpacing(fnt.Style)
+        Dim FontEmSize As Long = TextFont.FontFamily.GetEmHeight(TextFont.Style)
+        Dim FontLineSpacing As Long = TextFont.FontFamily.GetLineSpacing(TextFont.Style)
 
-        Dim emSize As Long = (desiredheight - 7) * FontEmSize / FontLineSpacing
+        Dim EmSize As Long = (DesiredHeight - 7) * FontEmSize / FontLineSpacing
 
-        fnt = New Font(fnt.FontFamily, emSize, fnt.Style, GraphicsUnit.Pixel)
+        TextFont = New Font(TextFont.FontFamily, EmSize, TextFont.Style, GraphicsUnit.Pixel)
 
-        Return fnt
+        Return TextFont
     End Function
 End Module

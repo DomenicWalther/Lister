@@ -8,21 +8,21 @@ Module applicationHandler
     End Function
 
     ' Gets the Item selected in the  Listbox & checks where it belongs 
-    Public Function checkResult()
+    Public Function CheckResult()
 
-        Dim selectedItem As String = Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedItem)
+        Dim SelectedItem As String = Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedItem)
 
-        If searchHandler.searchList.ContainsKey(selectedItem) Then
-            searchHandler.getSearchLink(selectedItem)
-        ElseIf selectedItem = "cmd" Then
-            commandHandler.getCommandFunction(selectedItem)
+        If searchHandler.searchList.ContainsKey(SelectedItem) Then
+            searchHandler.GetSearchLink(SelectedItem)
+        ElseIf SelectedItem = "cmd" Then
+            commandHandler.GetCommandFunction(SelectedItem)
         Else
-            openApplication()
+            OpenApplication()
         End If
     End Function
 
     ' Gets the Items Value and Opens the Window
-    Private Function openApplication()
+    Private Function OpenApplication()
         Dim hwnd As IntPtr = Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedValue)
         ShowWindow(hwnd, 3)
         AppActivate(Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedItem))

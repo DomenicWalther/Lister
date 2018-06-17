@@ -2,25 +2,25 @@
     Public lv As New ListView
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        commandList()
+        CommandList()
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        searchHandler.addSearchList(txtKey.Text, txtLink.Text)
+        searchHandler.AddSearchList(txtKey.Text, txtLink.Text)
         lv.Clear()
-        commandList()
+        CommandList()
         txtKey.Clear()
         txtLink.Clear()
     End Sub
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         MessageBox.Show(lv.SelectedItems(0).Text)
-        searchHandler.removeSearchList(lv.SelectedItems(0).Text)
+        searchHandler.RemoveSearchList(lv.SelectedItems(0).Text)
         lv.Clear()
-        commandList()
+        CommandList()
     End Sub
 
-    Public Function commandList()
+    Public Function CommandList()
 
         With lv
             .View = View.Details
