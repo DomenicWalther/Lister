@@ -27,19 +27,18 @@ Partial Class Settings
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.lbSearchList = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'txtKey
         '
-        Me.txtKey.Location = New System.Drawing.Point(37, 525)
+        Me.txtKey.Location = New System.Drawing.Point(57, 352)
         Me.txtKey.Name = "txtKey"
         Me.txtKey.Size = New System.Drawing.Size(310, 20)
         Me.txtKey.TabIndex = 0
         '
         'txtLink
         '
-        Me.txtLink.Location = New System.Drawing.Point(389, 525)
+        Me.txtLink.Location = New System.Drawing.Point(409, 352)
         Me.txtLink.Name = "txtLink"
         Me.txtLink.Size = New System.Drawing.Size(310, 20)
         Me.txtLink.TabIndex = 1
@@ -47,7 +46,7 @@ Partial Class Settings
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 497)
+        Me.Label1.Location = New System.Drawing.Point(54, 324)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 2
@@ -56,7 +55,7 @@ Partial Class Settings
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(386, 497)
+        Me.Label2.Location = New System.Drawing.Point(406, 324)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(27, 13)
         Me.Label2.TabIndex = 3
@@ -64,29 +63,18 @@ Partial Class Settings
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(37, 571)
+        Me.btnAdd.Location = New System.Drawing.Point(57, 398)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 4
         Me.btnAdd.Text = "Add Entry"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'lbSearchList
-        '
-        Me.lbSearchList.ColumnWidth = 20
-        Me.lbSearchList.FormattingEnabled = True
-        Me.lbSearchList.Location = New System.Drawing.Point(37, 22)
-        Me.lbSearchList.MultiColumn = True
-        Me.lbSearchList.Name = "lbSearchList"
-        Me.lbSearchList.Size = New System.Drawing.Size(662, 459)
-        Me.lbSearchList.TabIndex = 5
-        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 622)
-        Me.Controls.Add(Me.lbSearchList)
+        Me.ClientSize = New System.Drawing.Size(800, 433)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
