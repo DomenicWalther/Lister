@@ -6,7 +6,7 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        searchHandler.AddSearchList(txtKey.Text, txtLink.Text)
+        AddSearchList(txtKey.Text, txtLink.Text)
         lv.Clear()
         CommandList()
         txtKey.Clear()
@@ -15,7 +15,7 @@
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         MessageBox.Show(lv.SelectedItems(0).Text)
-        searchHandler.RemoveSearchList(lv.SelectedItems(0).Text)
+        RemoveSearchList(lv.SelectedItems(0).Text)
         lv.Clear()
         CommandList()
     End Sub
@@ -33,7 +33,7 @@
         lv.Dock = DockStyle.Fill
         Me.Controls.Add(lv)
 
-        For Each keyValue As KeyValuePair(Of String, String) In searchHandler.searchList
+        For Each keyValue As KeyValuePair(Of String, String) In SearchList
             lv.Items.Add(New ListViewItem({keyValue.Key, keyValue.Value}))
         Next
     End Function

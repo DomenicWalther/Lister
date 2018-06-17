@@ -19,7 +19,7 @@
             End If
         Next
 
-        For Each kvp As KeyValuePair(Of String, String) In SearchHandler.SearchList
+        For Each kvp As KeyValuePair(Of String, String) In SearchList
             dtPrograms.Rows.Add(kvp.Key)
         Next
 

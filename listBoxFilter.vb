@@ -5,11 +5,11 @@
     Public Function UpdateFilter()
 
 
-        DvPrograms = taskManagerPrograms.dtPrograms.DefaultView
+        DvPrograms = dtPrograms.DefaultView
 
         Dim filterText As String = Form1.txtFilter.Text.Split(" "c)(0)
 
-        If SearchHandler.SearchList.ContainsKey(filterText) Or filterText = "cmd" Then
+        If SearchList.ContainsKey(filterText) Or filterText = "cmd" Then
             DvPrograms.RowFilter = "Programs LIKE '%" + filterText + "'"
         Else
             DvPrograms.RowFilter = "Programs LIKE '%" + Form1.txtFilter.Text + "%'"

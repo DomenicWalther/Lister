@@ -2,7 +2,7 @@
 
 Public Module Hotkeys
     <DllImport("user32.dll")>
-    Function GetAsyncKeyState(ByVal vKey As System.Windows.Forms.Keys) As Short
+    Function GetAsyncKeyState(vKey As Keys) As Short
     End Function
 
     Const KeyDownBit As Integer = &H8000
@@ -19,18 +19,18 @@ Public Module Hotkeys
             If Form1.Visible Then
                 AppActivate("Lister")
             Else
-                listerFormHandler.ShowForm()
+                ShowForm()
             End If
 
 
         ElseIf (GetAsyncKeyState(Keys.Escape) And KeyDownBit) = KeyDownBit Then
-            listerFormHandler.HideForm()
+            HideForm()
         End If
     End Function
 
     Private Sub KeyDown1_keyDown(sender As Object, e As KeyEventArgs) Handles KeyDown1.KeyDown, KeyDown2.KeyDown
         If e.KeyCode = Keys.Enter And Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedItem) <> "" Then
-            applicationHandler.CheckResult()
+            CheckResult()
         End If
     End Sub
 End Module

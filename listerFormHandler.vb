@@ -3,8 +3,8 @@
     Public Function HideForm()
         Form1.Hide()
         Form1.txtFilter.Clear()
-        taskManagerPrograms.dtPrograms.Reset()
-        listBoxFilter.DvPrograms.RowFilter = ""
+        dtPrograms.Reset()
+        DvPrograms.RowFilter = ""
         Form1.lbPrograms.DataSource = Nothing
         Form1.lbPrograms.Items.Clear()
     End Function
@@ -12,8 +12,8 @@
     'Shows the Form & updates the Listbox with Programs & other Functions
     Public Function ShowForm()
         Form1.Show()
-        taskManagerPrograms.GetPrograms()
-        listBoxFilter.UpdateFilter()
+        GetPrograms()
+        UpdateFilter()
         Form1.txtFilter.Focus()
         AppActivate("Lister")
     End Function
@@ -29,10 +29,10 @@
 
         Dim desiredHeight = textBoxHeight
 
-        Dim textFont As Font = New Font(OriginalFont.FontFamily,
-                                        OriginalFont.Size,
-                                        OriginalFont.Style,
-                                        GraphicsUnit.Pixel)
+        Dim textFont = New Font(OriginalFont.FontFamily,
+                                OriginalFont.Size,
+                                OriginalFont.Style,
+                                GraphicsUnit.Pixel)
 
         If desiredHeight < 8 Then
             desiredHeight = 8

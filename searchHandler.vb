@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿
 
 Module SearchHandler
     Public SearchList As New Dictionary(Of String, String)
@@ -30,7 +30,7 @@ Module SearchHandler
             If value.Contains("https://www.") Then
                 SearchList.Add(key, value)
                 SaveSearchList()
-                listerFormHandler.HideForm()
+                HideForm()
             Else
                 MessageBox.Show("The Link must contain https://www.")
             End If
@@ -46,8 +46,8 @@ Module SearchHandler
         If SearchList.ContainsKey(key) Then
             SearchList.Remove(key)
             SaveSearchList()
-            listerFormHandler.HideForm()
-            listerFormHandler.ShowForm()
+            HideForm()
+            ShowForm()
         Else
             MessageBox.Show("This Key doesn't exist!")
         End If
@@ -55,7 +55,7 @@ Module SearchHandler
 
     ' Uses the SelectedItem in the Listbox as Key to get the Link of the Website
     Public Function GetSearchLink(selectedItem As String)
-        Dim searchLink As String = searchList.Item(selectedItem)
+        Dim searchLink As String = SearchList.Item(selectedItem)
         DoSearch(searchLink, selectedItem)
     End Function
 
@@ -65,6 +65,6 @@ Module SearchHandler
         Dim itemLength As Integer = item.Length()
         Dim searchQuery As String = txtFilter.Remove(0, itemLength + 1)
         Process.Start(link + searchQuery)
-        listerFormHandler.HideForm()
+        HideForm()
     End Function
 End Module

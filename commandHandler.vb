@@ -5,13 +5,13 @@
         Dim itemLength As Integer = selectedItem.Length
         Dim commandQuery = txtfilter.Remove(0, itemLength + 1)
         RunCommandCom(commandQuery, True)
-        listerFormHandler.HideForm()
+        HideForm()
     End Function
 
     ' Creates a new Process and uses the command as arguments
     Private Function RunCommandCom(command As String, permanent As Boolean)
-        Dim cmdProcess As Process = New Process()
-        Dim processInfo As ProcessStartInfo = New ProcessStartInfo()
+        Dim cmdProcess = New Process()
+        Dim processInfo = New ProcessStartInfo()
         processInfo.Arguments = " " + If(permanent = True, "/K", "/C") + " " + command
         processInfo.FileName = "cmd.exe"
         cmdProcess.StartInfo = processInfo

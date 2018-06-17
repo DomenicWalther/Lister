@@ -1,16 +1,16 @@
-﻿Imports System.Runtime.InteropServices
+﻿
 
 Public Class Form1
-    Private ListerFormHeight As Integer = 100
+    Private ReadOnly ListerFormHeight As Integer = 100
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Show()
         Timer1.Enabled = True
         Timer1.Interval = 1
-        SearchHandler.GetSearchList()
-        taskManagerPrograms.GetPrograms()
+        GetSearchList()
+        GetPrograms()
         txtFilter.Focus()
-        txtFilter.Font = listerFormHandler.GetFontForTextBoxHeight(ListerFormHeight, txtFilter.Font)
+        txtFilter.Font = GetFontForTextBoxHeight(ListerFormHeight, txtFilter.Font)
     End Sub
 
     Public Function OpenApplication()
@@ -20,11 +20,11 @@ Public Class Form1
         HideForm()
     End Function
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        Hotkeys.CheckHotkeys()
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        CheckHotkeys()
     End Sub
 
     Private Sub TxtFilter_TextChanged(sender As Object, e As EventArgs) Handles txtFilter.TextChanged
-        listBoxFilter.UpdateFilter()
+        UpdateFilter()
     End Sub
 End Class
