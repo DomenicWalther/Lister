@@ -8,7 +8,7 @@ Module applicationHandler
     End Function
 
     ' Gets the Item selected in the  Listbox & checks where it belongs 
-    Public Function CheckResult()
+    Public Function ProcessUserInput()
 
         Dim selectedItem As String = Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedItem)
 

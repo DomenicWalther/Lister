@@ -24,7 +24,7 @@
         Next
 
         dtPrograms.Rows.Add("cmd")
-
+        ListAllInstalledSoftwareInListView()
         Return dtPrograms
     End Function
 End Module

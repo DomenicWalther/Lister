@@ -26,6 +26,7 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lbPrograms = New System.Windows.Forms.ListBox()
         Me.txtFilter = New System.Windows.Forms.TextBox()
+        Me.backgroundWorkerApplicationList = New System.ComponentModel.BackgroundWorker()
         Me.SuspendLayout()
         '
         'Timer1
@@ -49,6 +50,9 @@ Partial Class Form1
         Me.txtFilter.Size = New System.Drawing.Size(800, 131)
         Me.txtFilter.TabIndex = 1
         '
+        'backgroundWorkerApplicationList
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -71,4 +75,5 @@ Partial Class Form1
     Friend WithEvents Timer1 As Timer
     Friend WithEvents lbPrograms As ListBox
     Friend WithEvents txtFilter As TextBox
+    Friend WithEvents backgroundWorkerApplicationList As System.ComponentModel.BackgroundWorker
 End Class

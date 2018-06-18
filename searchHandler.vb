@@ -25,7 +25,7 @@ Module SearchHandler
     End Function
 
     ' Adds a key to the Search List
-    Public Function AddSearchList(key As String, value As String)
+    Public Function AddKeyValuePairToSearchList(key As String, value As String)
         Try
             If value.Contains("https://www.") Then
                 SearchList.Add(key, value)
@@ -42,7 +42,7 @@ Module SearchHandler
     End Function
 
     ' Removes a specific key from the Search List 
-    Public Function RemoveSearchList(key As String)
+    Public Function RemoveKeyFromSearchList(key As String)
         If SearchList.ContainsKey(key) Then
             SearchList.Remove(key)
             SaveSearchList()
@@ -56,11 +56,11 @@ Module SearchHandler
     ' Uses the SelectedItem in the Listbox as Key to get the Link of the Website
     Public Function GetSearchLink(selectedItem As String)
         Dim searchLink As String = SearchList.Item(selectedItem)
-        DoSearch(searchLink, selectedItem)
+        RunSearch(searchLink, selectedItem)
     End Function
 
     ' Gets the search parameters, removes the command and then opens the link in the webbrowser
-    Public Function DoSearch(link As String, item As String)
+    Public Function RunSearch(link As String, item As String)
         Dim txtFilter = Form1.txtFilter.Text
         Dim itemLength As Integer = item.Length()
         Dim searchQuery As String = txtFilter.Remove(0, itemLength + 1)

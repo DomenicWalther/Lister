@@ -6,7 +6,7 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        AddSearchList(txtKey.Text, txtLink.Text)
+        AddKeyValuePairToSearchList(txtKey.Text, txtLink.Text)
         lv.Clear()
         CommandList()
         txtKey.Clear()
@@ -15,7 +15,7 @@
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         MessageBox.Show(lv.SelectedItems(0).Text)
-        RemoveSearchList(lv.SelectedItems(0).Text)
+        RemoveKeyFromSearchList(lv.SelectedItems(0).Text)
         lv.Clear()
         CommandList()
     End Sub

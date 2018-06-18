@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 
-Public Module Hotkeys
+Public Module hotkeyHandler
     <DllImport("user32.dll")>
     Function GetAsyncKeyState(vKey As Keys) As Short
     End Function
@@ -30,7 +30,7 @@ Public Module Hotkeys
 
     Private Sub KeyDown1_keyDown(sender As Object, e As KeyEventArgs) Handles KeyDown1.KeyDown, KeyDown2.KeyDown
         If e.KeyCode = Keys.Enter And Form1.lbPrograms.GetItemText(Form1.lbPrograms.SelectedItem) <> "" Then
-            CheckResult()
+            ProcessUserInput()
         End If
     End Sub
 End Module

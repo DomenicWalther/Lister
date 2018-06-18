@@ -1,4 +1,5 @@
 ﻿
+Imports Lister.My
 
 Public Class Form1
     Private ReadOnly ListerFormHeight As Integer = 100
@@ -27,4 +28,5 @@ Public Class Form1
     Private Sub TxtFilter_TextChanged(sender As Object, e As EventArgs) Handles txtFilter.TextChanged
         UpdateFilter()
     End Sub
+
 End Class
