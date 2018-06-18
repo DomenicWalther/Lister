@@ -1,5 +1,5 @@
-﻿Public Module taskManagerPrograms
-    Public dtPrograms As DataTable = New DataTable
+﻿Public Module TaskManagerPrograms
+    Public DtPrograms As DataTable = New DataTable
 
     ' Defines all of the Listbox Properties
     Public Function GetPrograms() As DataTable
@@ -10,21 +10,21 @@
 
     ' Adds Rows & Columns by looping through the running programs & the searchList
     Private Function GetData() As DataTable
-        dtPrograms.Columns.Add("Programs", GetType(String))
-        dtPrograms.Columns.Add("Handles", GetType(String))
+        DtPrograms.Columns.Add("Programs", GetType(String))
+        DtPrograms.Columns.Add("Handles", GetType(String))
 
         For Each proc As Process In Process.GetProcesses
             If proc.MainWindowTitle <> "" Then
-                dtPrograms.Rows.Add(proc.MainWindowTitle, proc.MainWindowHandle)
+                DtPrograms.Rows.Add(proc.MainWindowTitle, proc.MainWindowHandle)
             End If
         Next
 
         For Each kvp As KeyValuePair(Of String, String) In SearchList
-            dtPrograms.Rows.Add(kvp.Key)
+            DtPrograms.Rows.Add(kvp.Key)
         Next
 
-        dtPrograms.Rows.Add("cmd")
+        DtPrograms.Rows.Add("cmd")
         ListAllInstalledSoftwareInListView()
-        Return dtPrograms
+        Return DtPrograms
     End Function
 End Module
