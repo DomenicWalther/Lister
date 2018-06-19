@@ -1,6 +1,4 @@
-﻿
-
-Module SearchHandler
+﻿Module SearchHandler
     Public SearchList As New Dictionary(Of String, String)
 
     'Loads the List of Websites for the Search Function
