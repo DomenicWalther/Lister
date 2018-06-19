@@ -5,7 +5,7 @@
     Public Function UpdateFilter()
 
 
-        DvPrograms = dtPrograms.DefaultView
+        DvPrograms = DtPrograms.DefaultView
 
         Dim filterText As String = Form1.txtFilter.Text.Split(" "c)(0)
 
@@ -23,6 +23,7 @@
             Form1.Size = New Size(800, 100 + listBoxHeight)
         Else
             Form1.Size = New Size(800, 100)
+
         End If
     End Function
 End Module

@@ -3,7 +3,7 @@
     Public Function HideForm()
         Form1.Hide()
         Form1.txtFilter.Clear()
-        dtPrograms.Reset()
+        DtPrograms.Reset()
         DvPrograms.RowFilter = ""
         Form1.lbPrograms.DataSource = Nothing
         Form1.lbPrograms.Items.Clear()
